@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featured Items - @Fa1rusz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Kanit:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0a08;
+      --bg2: #141210;
+      --bg3: #1c1915;
+      --gold: #d4a84b;
+      --gold-dim: #9a7a35;
+      --gold-glow: rgba(212, 168, 75, 0.12);
+      --warm-off: #f0e8d8;
+      --warm-mid: #a89880;
+      --warm-dim: #5a5048;
+      --red-tag: #c0432a;
+      --green-tag: #2a7a4a;
+      --border: rgba(212, 168, 75, 0.18);
+      --border-dim: rgba(255, 255, 255, 0.06);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--warm-off);
+      font-family: "Outfit", "Kanit", sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* ── Ambient background ── */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(
+          ellipse 60% 50% at 50% 0%,
+          rgba(212, 168, 75, 0.07) 0%,
+          transparent 65%
+        ),
+        radial-gradient(
+          ellipse 40% 30% at 80% 80%,
+          rgba(212, 168, 75, 0.04) 0%,
+          transparent 55%
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Grain texture overlay */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      padding: 40px 24px 60px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .back-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--warm-mid);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 30px;
+      transition: color 0.2s, transform 0.2s;
+      align-self: flex-start;
+    }
+    
+    .back-nav:hover {
+      color: var(--gold);
+      transform: translateX(-4px);
+    }
+    
+    .header {
+      font-family: "Cormorant Garamond", "Kanit", serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--warm-off);
+      margin-bottom: 24px;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    
+    .product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    
+    .product-card {
+      background: var(--bg2);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid var(--border-dim);
+      text-decoration: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(212, 168, 75, 0.28);
+      background: var(--bg3);
+    }
+
+    .product-img {
+      width: 68px;
+      height: 68px;
+      background: var(--bg3);
+      border: 1px solid var(--border-dim);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      padding: 2px;
+    }
+    
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    
+    .product-info {
+      flex: 1;
+    }
+    
+    .product-title {
+      font-family: "Cormorant Garamond", "Kanit", serif;
+      color: var(--warm-off);
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    
+    .product-subtitle {
+      color: var(--warm-mid);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+    
+    .buy-btn {
+      display: inline-flex;
+      align-items: center;
+      background: var(--gold);
+      color: #0c0a08;
+      border: none;
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      font-family: inherit;
+    }
+    
+    .product-card:hover .buy-btn {
+      background: #e8c060;
+      transform: scale(1.05);
+    }
+    
+    /* ── Ripple effect ── */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(212, 168, 75, 0.15);
+      transform: scale(0);
+      animation: ripple-out 0.5s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple-out {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="affiliate-linkinbio_claude.html" class="back-nav">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back
+    </a>
+    
+    <div class="header">Featured Items</div>
+    
+    <div class="product-list">
+      <!-- Product 1 -->
+      <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" class="product-card">
+        <div class="product-img">
+          <!-- Replace this with your actual image path -->
+          <img src="assets/images/monitor-light-bar.jpg" alt="Monitor Light Bar">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Monitor Light Bar</div>
+          <div class="product-subtitle">Reduces eye strain</div>
+        </div>
+        <button class="buy-btn">Buy</button>
+      </a>
+
+      <!-- Product 2 -->
+      <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" class="product-card">
+        <div class="product-img">
+          <!-- Replace this with your actual image path -->
+          <img src="assets/images/mini-smart-projector.jpg" alt="Mini Smart Projector">
+        </div>
+        <div class="product-info">
+          <div class="product-title">Mini Smart Projector</div>
+          <div class="product-subtitle">1080p HD • 50% Off</div>
+        </div>
+        <button class="buy-btn">Buy</button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Ripple effect on all clickable cards
+    document.querySelectorAll(".product-card").forEach((card) => {
+      card.addEventListener("click", function (e) {
+        const rect = this.getBoundingClientRect();
+        const ripple = document.createElement("span");
+        const size = Math.max(rect.width, rect.height);
+        ripple.className = "ripple";
+        ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size / 2}px;top:${e.clientY - rect.top - size / 2}px`;
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 500);
+      });
+    });
+  </script>
+</body>
+</html>
