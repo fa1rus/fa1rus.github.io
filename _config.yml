@@ -6,3 +6,4 @@ baseurl: ""
 url: ""
 markdown: kramdown
 theme: jekyll-theme-minimal
+permalink: pretty
