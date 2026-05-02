@@ -207,6 +207,26 @@ permalink: /products/
       transform: scale(1.05);
     }
     
+    .more-reviews {
+      display: inline-block;
+      margin-top: 32px;
+      color: var(--warm-mid);
+      text-decoration: underline;
+      text-decoration-color: var(--border-dim);
+      text-underline-offset: 4px;
+      font-weight: 500;
+      font-size: 15px;
+      text-align: center;
+      transition: color 0.2s, text-decoration-color 0.2s, transform 0.2s;
+      align-self: center;
+    }
+    
+    .more-reviews:hover {
+      color: var(--gold);
+      text-decoration-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
     /* ── Ripple effect ── */
     .ripple {
       position: absolute;
@@ -291,15 +311,17 @@ permalink: /products/
       <!-- Product 5 -->
       <a href="https://s.shopee.co.th/6AhXQEcjL7" target="_blank" class="product-card">
         <div class="product-img">
-          <img src="/assets/images/Powerbank.webp" alt="พาวเวอร์แบงค์ 30000mAh">
+          <img src="/assets/images/Powerbank.webp" alt="พาวเวอร์แบงค์ 30,000 mAh">
         </div>
         <div class="product-info">
-          <div class="product-title">พาวเวอร์แบงค์ 30000mAh</div>
+          <div class="product-title">พาวเวอร์แบงค์ 30,000 mAh</div>
           <div class="product-subtitle">ความจุเยอะ ชาร์จเร็ว 120W</div>
         </div>
         <button class="buy-btn">Buy</button>
       </a>
     </div>
+
+    <a href="/blog/" class="more-reviews">อ่านรีวิวสินค้าเพิ่มเติม</a>
   </div>
 
   <script>
