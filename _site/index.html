@@ -7,10 +7,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Kanit:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <style>
+      /* ── Self-hosted LINE Seed Sans TH ── */
+      @font-face {
+        font-family: 'LINE Seed Sans TH';
+        src: url('/assets/fonts/LINESeedSansTH_W_Th.woff2') format('woff2');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'LINE Seed Sans TH';
+        src: url('/assets/fonts/LINESeedSansTH_W_Rg.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'LINE Seed Sans TH';
+        src: url('/assets/fonts/LINESeedSansTH_W_Bd.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'LINE Seed Sans TH';
+        src: url('/assets/fonts/LINESeedSansTH_W_XBd.woff2') format('woff2');
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         --bg: #0c0a08;
         --bg2: #141210;
@@ -40,7 +70,7 @@
       body {
         background: var(--bg);
         color: var(--warm-off);
-        font-family: "Outfit", "Kanit", sans-serif;
+        font-family: "LINE Seed Sans TH", sans-serif;
         font-weight: 400;
         min-height: 100vh;
         display: flex;
@@ -166,7 +196,7 @@
       }
 
       .profile-name {
-        font-family: "Cormorant Garamond", "Kanit", serif;
+        font-family: "Playfair Display", serif;
         font-size: 28px;
         font-weight: 600;
         letter-spacing: 0.02em;
@@ -336,7 +366,7 @@
       }
 
       .hero-title {
-        font-family: "Cormorant Garamond", "Kanit", serif;
+        font-family: "Playfair Display", serif;
         font-size: 22px;
         font-weight: 600;
         color: var(--warm-off);
@@ -459,7 +489,7 @@
         height: 14px;
         transition: transform 0.2s ease;
       }
-      .link-card:hover .link-card-right svg {
+      .link-card:hover .link-card-right svg:last-child {
         transform: translateX(2px);
       }
 
@@ -633,7 +663,7 @@
           <div class="avatar-ring">
             <div class="avatar-inner">
               <img
-                src="assets/images/profile.png"
+                src="/assets/images/profile.png"
                 alt="Profile photo"
               />
             </div>
@@ -686,7 +716,7 @@
           ⭐ Recommended Products
         </p>
 
-        <a href="products.html" class="link-hero" id="hero-link">
+        <a href="/products" class="link-hero" id="hero-link">
           <div class="hero-top">
             <div class="hero-tags">
               <span class="tag tag-hot">🔥 Trending</span>
@@ -742,7 +772,7 @@
         </div>
 
         <!-- Standard cards -->
-        <a href="blog.html" class="link-card a1">
+        <a href="/blog" class="link-card a1">
           <div class="link-card-left">
             <div class="link-icon">
               <svg
@@ -775,7 +805,7 @@
           </div>
         </a>
 
-        <a href="www.youtube.com/@Ruszki-J" target="_blank" class="link-card a2">
+        <a href="https://www.youtube.com/@Ruszki-J" target="_blank" class="link-card a2">
           <div class="link-card-left">
             <div class="link-icon">
               <svg
@@ -825,6 +855,14 @@
             <span>Work With Me</span>
           </div>
           <div class="link-card-right">
+            <svg
+              viewBox="0 0 32 32"
+              fill="currentColor"
+            >
+              <g id="Gmail">
+                <path d="M25.49,30H4.5A3.35,3.35,0,0,1,2,29a3.35,3.35,0,0,1-1-2.48V5.5A3.35,3.35,0,0,1,2,3,3.35,3.35,0,0,1,4.5,2h21A3.35,3.35,0,0,1,28,3,3.35,3.35,0,0,1,29,5.5v21A3.52,3.52,0,0,1,25.49,30Zm-3-7.17a2.93,2.93,0,0,0,1.71-.37,1.41,1.41,0,0,0,.49-1.22V10.36a1.55,1.55,0,0,0-.47-1.13,1.51,1.51,0,0,0-1.13-.47H6.83a1.55,1.55,0,0,0-1.13.47,1.53,1.53,0,0,0-.47,1.12V21.24a1.53,1.53,0,0,0,.47,1.12,1.55,1.55,0,0,0,1.13.47Zm-14.7-.76V13.14l6.46,4.45Zm14.14.37H8l6.63-4.63a.6.6,0,0,0,.34.16,1,1,0,0,0,.33-.16Zm-7-8.15L8,9.16H21.9Zm7.14,7.78-6.46-4.48,6.46-4.45Z"/>
+              </g>
+            </svg>
             <span
               style="
                 font-size: 11px;
